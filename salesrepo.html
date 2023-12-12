@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./canvas/GUM.css">
+    <link rel="stylesheet" href="./canvas/bootstrap.css">
+    <script src="./caffeine/Steptronic.js"></script>
+    <link rel="stylesheet" href="./canvas/Delta.css">
+    <link rel="stylesheet" href="./canvas/VOSK.css">
+    <script src="./caffeine/dexie.js"></script>
+    <title>TQ</title>
+</head>
+<body>
+    <delta-head></delta-head>
+    <div id="VOSK-SPACER"></div>
+    <delta-foot></delta-foot>
+    <div id="Cards"></div>
+        <table id="Tags" class="table-primary">
+
+</body>
+
+<script src="./caffeine/JSsearch.js"></script>
+
+<script>
+    function opener() {
+    window.location.href = "./page.html";
+}
+</script>
+
+<script type="module">
+const idata = await new Dexie("Uchi").open();
+const Sales = await idata.table("sales").toArray();
+
+console.log(Sales);
+const Icons = document.getElementById("Tags");
+repof();
+
+function repof()
+{let itemsss = 0;
+    Sales.forEach((Item) =>
+{ itemsss++
+    let rows = document.createElement("tr");
+
+    rows.innerHTML = `
+    <th scope="row">${itemsss}</th>
+      <td>${Item.Name}</td>
+      <td alert alert-primary>${Item.Cost}</td>
+      <td>${Item.Sell}</td>
+      <td>${Item.Sell - Item.Cost}</td>
+      <td>${Item.Qtys}</td>
+    `;
+
+        Icons.append(rows);
+});
+}
+
+
+</script>
+<script src="./caffeine/VOSK.js"></script>
+</html>

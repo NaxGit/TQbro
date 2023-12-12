@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./canvas/GUM.css">
+    <link rel="stylesheet" href="./canvas/bootstrap.css">
+    <script src="./caffeine/Steptronic.js"></script>
+    <link rel="stylesheet" href="./canvas/Delta.css">
+    <link rel="stylesheet" href="./canvas/VOSK.css">
+    <script src="./caffeine/dexie.js"></script>
+    <title>TQ</title>
+</head>
+<body>
+    <delta-head></delta-head>
+    <div id="VOSK-SPACER"></div>
+    <delta-foot></delta-foot>
+    <div id="Cards"></div>
+    <button type="button" class="btn btn-dark" onclick="openerrepo()">Sales Report</button>
+    <div id="Icons" class="GUMIcons"></div>
+</body>
+
+<script src="./caffeine/JSsearch.js"></script>
+
+<script>
+    function opener() {
+    window.location.href = "./index.html";
+}
+
+function openerrepo() {
+    console.log("Dooor");
+    window.location.href = "./salesrepo.html";
+}
+</script>
+
+<script type="module">
+
+
+// const Index = await new Dexie("Queens").open().then().catch(Error, e => {window.location.href = "./Machining/upgrade.html";});
+
+const idata = await new Dexie("Uchi").open();
+
+const Stock = await idata.table("stock").toArray();
+
+const Icons = document.getElementById("Icons");
+const Cards = document.getElementById("Cards");
+
+icons();
+
+function icons()
+{
+Stock.forEach((Item) =>
+{
+    let icon = document.createElement("img");
+        icon.src = Item.Imge;
+        icon.onclick = function () { fnCards(Item.SKU); };
+        Icons.append(icon);
+});
+}
+
+function fnCards(i)
+{
+    document.getElementById("Cards").innerHTML = "";
+const selected = Stock.find(({ SKU }) => SKU === i);
+    
+    let clone = document.createElement('div');
+    clone.className = "GUMCards";
+
+
+    clone.innerHTML =
+    `
+  <img src="${selected.Imge}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${selected.Name}</h5>
+    <p class="card-text">Selling price Ksh. ${selected.Sell}</p>
+    <p class="card-text">Stock in shop ${selected.Qtys} pcs</p>
+    <a href="#" id="Capil" class="btn btn-primary">Tap to sell</a>
+  </div>
+  `;
+    document.getElementById("Cards").append(clone);
+
+    let rapid = document.getElementById("Capil");
+
+    rapid.onclick = function(){ Saless(selected); };
+
+
+
+}
+
+async function Saless(yok) {
+    console.log(yok);
+
+    let nos = yok.Qtys;
+
+    let nes = nos - 1;
+
+    yok.Qtys = nes;
+
+    const Stamp = new Date().getTime();
+
+    yok.Stamp = Stamp;
+
+    let ilink = await new Dexie("Uchi").open();
+    let table = await ilink.table("sales");
+    let addin = await table.put(yok);
+}
+
+</script>
+<script src="./caffeine/VOSK.js"></script>
+</html>
