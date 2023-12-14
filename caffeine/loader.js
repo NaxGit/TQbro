@@ -1,5 +1,6 @@
 const iJava = document.getElementById("iJava");
 
+// const product = {Show: '1'};
 
 document.getElementById("sheleves").onclick = function (e) {
     document.getElementById("HOLDER").remove();
