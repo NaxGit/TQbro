@@ -81,9 +81,9 @@ var table = new Tabulator("#example-table", {
  	data:Stock, //assign data to table
  	layout:"fitColumns", //fit columns to width of table (optional)
  	columns:[ //Define Table Columns
-	 	{title:"Name", field:"Name", width:160},
-	 	{title:"Cost", field:"Cost", topCalc:"sum", width:48},
-	 	{title:"Sell", field:"Sell", topCalc:"sum", width:48},
+	 	{title:"Name", field:"Name", widthGrow:3},
+	 	{title:"Cost", field:"Cost", topCalc:"sum", width:100, widthShrink:2},
+	 	{title:"Sell", field:"Sell", topCalc:"sum", width:100, widthShrink:2},
 		{title:"Profit", field:"Qtys", topCalc:adultCalc, width:48},
  	],
 });
