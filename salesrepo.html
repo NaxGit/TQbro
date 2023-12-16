@@ -67,6 +67,15 @@ function icons()
 }
 icons();
 
+var adultCalc = function(){
+    var calc = 0;
+    Stock.forEach(element => {
+      let pro = element.Sell - element.Cost;
+
+      calc = calc + pro;
+    });
+    return calc;
+}
 function tabul() {
 var table = new Tabulator("#example-table", {
  	data:Stock, //assign data to table
@@ -75,7 +84,7 @@ var table = new Tabulator("#example-table", {
 	 	{title:"Name", field:"Name"},
 	 	{title:"Cost", field:"Cost", topCalc:"sum"},
 	 	{title:"Sell", field:"Sell", topCalc:"sum"},
-	 	{title:"Qtys", field:"Qtys"},
+		{title:"Profit", field:"Qtys", topCalc:adultCalc},
  	],
 });
 
