@@ -82,9 +82,9 @@ var table = new Tabulator("#example-table", {
  	layout:"fitColumns", //fit columns to width of table (optional)
  	columns:[ //Define Table Columns
 	 	{title:"Name", field:"Name"},
-	 	{title:"Cost", field:"Cost", topCalc:"sum"},
-	 	{title:"Sell", field:"Sell", topCalc:"sum"},
-		{title:"Profit", field:"Qtys", topCalc:adultCalc},
+	 	{title:"Cost", field:"Cost", topCalc:"sum", widthGrow:1},
+	 	{title:"Sell", field:"Sell", topCalc:"sum", widthGrow:1},
+		{title:"Profit", field:"Qtys", topCalc:adultCalc, widthGrow:1},
  	],
 });
 
