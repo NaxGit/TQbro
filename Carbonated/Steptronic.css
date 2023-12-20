@@ -1,0 +1,96 @@
+/* δ Delta components [Steptronic] */
+
+.Delta {
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+    height: 48px;
+    display: grid;
+    position: fixed;
+    padding: 0px 0px;
+    overflow: hidden;
+    transition: 0.6s;
+    background-color: tomato;
+    grid-template-columns: 48px auto 48px;
+}
+.Delta div, .Delta a {
+    color: var(--color);
+    font-size: 1.6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;}
+
+#deltaHead {
+    background: var(--ThemeHEX);
+}
+
+#cometFlow {
+    top: 48px;
+    z-index: 2;
+    height: 0px;
+    background-color: var(--flowsc);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+#cometFlow div {
+    color: var(--obergins);
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;}
+
+#slideMenu {
+    top: 48px;
+    z-index: 2;
+    height: 0px;
+    background-color: var(--navbar);
+    grid-template-columns: auto;
+}
+
+#blockFind {
+    top: 48px;
+    z-index: 0;
+    padding: 0px 48px;
+    background-color: var(--PageBack);
+    grid-template-columns: auto 48px;
+}
+
+#boardVosk {
+    top: calc(100% - 48px);
+    z-index: 3;
+    height: 0px;
+    grid-template-columns: auto;
+    overflow: visible;
+}
+
+#deltaFoot {
+    top: calc(100% - 48px);
+    z-index: 1;
+    background: var(--ThemeHEX);
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+
+
+
+
+#search {
+    color: var(--textsHEX);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    margin: 0.5rem 0px;
+border: 3px solid var(--search);
+border-radius: 0.375rem 0px 0px 0.375rem;
+}
+#comets {
+    color: var(--textsHEX);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8em;
+    margin: 0.5rem 0px;
+border: 3px solid var(--comets);
+border-radius: 0px 0.375rem 0.375rem 0px;
+}

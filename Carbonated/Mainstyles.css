@@ -1,0 +1,75 @@
+:root
+{
+/* --ThemeHEX: #20C997; */
+
+--PageBack: #FFFFFF;
+--ThemeRGB: rgba(032, 201, 151, 1);
+
+--ThemeHEX: #035F6B;
+
+--obergins: #2c001e;
+--textsHEX: #2F3336;
+--textsRGB: rgba(47, 51, 54, 1);
+--Borde: rgba(0, 0, 0, 0.175);
+
+
+
+--theme: #20C997;
+--texts: #303030;
+--color: #DCDCDC;
+--lines: #DEE2E6;
+
+
+--navbar: #111111; /* SliderNav BG */
+--flowsc: #E95420;
+
+--search: #DEE2E6; /* Search border */
+--comets: #383838; /* Comets border */
+
+}
+
+@font-face
+{
+font-family: NativeUL;
+src: url(./Ubuntu/Ubuntu-Light.ttf);
+}
+
+*
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: NativeUL;
+}
+
+body
+{
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+}
+
+a {all: unset;}
+h1, h2 {all: unset;}
+
+#AKcost::before {content: 'Cost: '; padding-left: 0.5rem;}
+#AKsell::before {content: 'Sell: '; padding-left: 0.5rem;}
+#AKqtys::before {content: 'Qty: '; padding-left: 0.5rem;}
+
+/* deltaδShadow */
+delta-head:after {
+content: "";
+position: absolute;
+z-index: 1;
+top: 48px;
+left: -50%;
+width: 200%;
+height: 0.5rem;
+background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(00, 00, 00, 0.5),
+    rgba(255, 255, 255, 0.0)
+    50%);
+}
+
+#Icons, Cards, iJava {background-color: #035F6B;}
