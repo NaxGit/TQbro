@@ -1,0 +1,113 @@
+:root
+{
+--PageBack: #FFFFFF;
+--ThemeHEX: #035F6B;
+--obergins: #77216F;
+--textsHEX: #2F3336;
+--textsRGB: rgba(47, 51, 54, 1);
+--Borde: rgba(0, 0, 0, 0.175);
+--theme: #20C997;
+--texts: #303030;
+--color: #DCDCDC;
+--lines: #DEE2E6;
+--navbar: #111111; /* SliderNav BG */
+--flowsc: #E95420;
+--search: #DEE2E6; /* Search border */
+--comets: #383838; /* Comets border */
+}
+
+@font-face
+{
+font-family: NativeUL;
+src: url(./Ubuntu/Ubuntu-Light.ttf);
+}
+
+*
+{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: NativeUL;
+}
+
+body
+{
+margin: 0px;
+padding: 0px;
+box-sizing: border-box;
+}
+
+a {all: unset;}
+h1, h2 {all: unset;}
+
+#AKcost::before {content: 'Cost: '; padding-left: 0.5rem;}
+#AKsell::before {content: 'Sell: '; padding-left: 0.5rem;}
+#AKqtys::before {content: 'Qty: '; padding-left: 0.5rem;}
+
+
+
+
+/* #dialog {
+  margin: auto;
+  box-shadow: none;
+  border-radius: 0.375rem;
+  border: none;
+}
+#dialog::backdrop {
+  background-color: rebeccapurple;
+}
+#dialog header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */
+
+dialog
+{
+margin: auto;
+border-radius: 0.375rem;
+border: none !important;
+outline: none !important;
+box-shadow: none !important;
+}
+
+dialog::backdrop {
+  /* background-color: #035F6B; */
+  color: #000;
+}
+
+
+#dial {padding: 0.5rem;}
+
+#dial > img:nth-child(1) {width: 60%;}
+#dial > div:nth-child(2) {font-size: 1.6rem;}
+#dial > div:nth-child(3) {font-size: 1.8rem;}
+
+dialog.hide {
+  animation: hide 1s ease normal;
+}
+@keyframes hide {
+  to {
+    transform: translateY(-100%);
+}
+}
+
+
+/* ----- SVG Icons - svgicons.sparkk.fr http://svgicons.sparkk.fr/ ----- */
+
+.svg-icon {
+    width: 50%;
+    height: 50%;
+  }
+  
+  .svg-icon path,
+  .svg-icon polygon,
+  .svg-icon rect {
+    fill: #77216F;
+  }
+  
+  .svg-icon circle {
+    stroke: #77216F;
+    stroke-width: 1;
+  }
+
