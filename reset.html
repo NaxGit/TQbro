@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete IndexedDB</title>
+    <script src="./Diminuendo/dexie.js"></script>
+</head>
+<body>
+    <button id="deleteButton">Delete IndexedDB</button>
+    <script>
+        let Index;  // Declare the Index variable outside the DOMContentLoaded callback
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Function to delete the IndexedDB
+            function deleteIndexedDB() {
+                // Ask for confirmation
+                const isConfirmed = confirm("Are you sure you want to delete the IndexedDB? This action is irreversible.");
+
+                if (!isConfirmed) {
+                    return; // User canceled the operation
+                }
+
+
+
+                // Delete the database
+                const deleteRequest = indexedDB.deleteDatabase("Uchi");
+
+                deleteRequest.onsuccess = function() {
+                    console.log("IndexedDB deleted successfully");
+                };
+
+                deleteRequest.onerror = function(event) {
+                    console.error("Error deleting IndexedDB", event.target.error);
+                };
+            }
+
+            // Add click event listener to the button
+            const deleteButton = document.getElementById('deleteButton');
+            if (deleteButton) {
+                deleteButton.addEventListener('click', deleteIndexedDB);
+            }
+
+
+        });
+    </script>
+</body>
+</html>
