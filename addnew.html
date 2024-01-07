@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Crescendo/Mainstyles.css">
+    <link rel="stylesheet" href="./Crescendo/Steptronic.css">
+    <link rel="stylesheet" href="./Crescendo/DIVoverall.css">
+    <link rel="stylesheet" href="./Crescendo/VirtualOSK.css">
+    <link rel="stylesheet" href="./Crescendo/Reports.css">
+    <script src="./Diminuendo/dexie.js"></script>
+    <script src="./Diminuendo/Initialize.js"></script>
+    <script src="./Diminuendo/Steptronic.js"></script>
+    <script src="./Diminuendo/fn.js"></script>
+    <title>⊤⌕</title>
+  <style>
+    form {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 15px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+    <delta-head></delta-head>
+    <comet-flow></comet-flow>
+    <slide-menu></slide-menu>
+    <block-find></block-find>
+
+    <div class="reporthead">Add New Product</div>
+    <form id="addProductForm">
+      <label for="sku">Code:</label>
+      <input type="text" id="sku" required>
+  
+      <label for="productName">Product Name:</label>
+      <input type="text" id="productName" required>
+  
+      <label for="cost">Cost:</label>
+      <input type="number" id="cost" required>
+  
+      <label for="sell">Sell:</label>
+      <input type="number" id="sell" required>
+  
+      <label for="quantity">Quantity:</label>
+      <input type="number" id="quantity" required>
+  
+      <button type="button" id="buttonjenson"">Add Product</button>
+    </form>
+
+    <board-vosk></board-vosk>
+    <delta-foot></delta-foot>
+
+<script type="module">
+
+const jaybee = document.getElementById("buttonjenson");
+jaybee.onclick = function(){ addProduct() };
+
+    let ilink = await new Dexie("Uchi").open();
+    let table = await ilink.table("stock");
+
+    async function addProduct() {
+      const sku = document.getElementById('sku').value;
+      const productName = document.getElementById('productName').value;
+      const cost = parseFloat(document.getElementById('cost').value);
+      const sell = parseFloat(document.getElementById('sell').value);
+      const quantity = parseInt(document.getElementById('quantity').value, 10);
+
+      if (sku && productName && !isNaN(cost) && !isNaN(sell) && !isNaN(quantity)) {
+
+        let addin = await table.add({
+            Cost: cost,
+            Qtys: quantity,
+            SKU: sku,
+            Sell: sell,
+            Show: 1,
+            iIcon: 'user',
+            iName: productName
+        }).then(() => {
+          console.log('Product added successfully');
+          // You can add further actions or redirect to another page here
+        }).catch(error => {
+          console.error('Error adding product:', error);
+        });
+      } else {
+        alert('Please fill in all fields with valid values.');
+      }
+    }
+  </script>
+
+</body>
+</html>
