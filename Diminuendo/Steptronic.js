@@ -54,7 +54,7 @@ class SlideMenu extends HTMLElement {
         <a href="./sales.html">Sales</a>
         <a href="./stock.html">Stock</a>
         <a href="./addnew.html">Add new Item</a>
-        <div>...</div>`;
+        <a href="./reset.html">...</a>`;
     }
 } customElements.define("slide-menu", SlideMenu);
 
